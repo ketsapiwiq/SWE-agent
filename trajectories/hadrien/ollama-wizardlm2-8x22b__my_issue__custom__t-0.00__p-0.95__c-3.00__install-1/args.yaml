@@ -111,7 +111,7 @@ agent:
         params="q=${search_term}&engines=google&format=json"    if ! command -v curl
         &> /dev/null; then        echo "Error: curl is not installed or not found
         in PATH."        return 1    fi    echo "curl -s \"${search_url}?${params}\""    local
-        results=$(curl -s "${search_url}?${params}")    echo "$results"    export
+        results=$(curl -s "${search_url}?${params}")    echo "$(jq $results)"    export
         SEARCH_RESULTS=$results}'
       docstring: Searches the web using the Searx API and returns the results.
       end_name: null
