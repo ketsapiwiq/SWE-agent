@@ -15,7 +15,7 @@ search_www() {
 
     local search_term="$1"
     local SEARX_URL=${SEARX_URL:-127.0.0.1:9999}"
-    
+
     # Use Searx API to search for the term
     local search_url="http://${SEARX_URL}/search"
     local params="q=${search_term}&engines=google&format=json"
@@ -28,4 +28,5 @@ search_www() {
     echo "curl -s \"${search_url}?${params}\""
     local results=$(curl -s "${search_url}?${params}")
     echo "$results"
+    export SEARCH_RESULTS=$results
 }
