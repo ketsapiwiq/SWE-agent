@@ -1,1 +1,1 @@
-python run.py --image_name=sweagent/swe-agent:latest --model_name gpt4-turbo --data_path "./my_issue.md" --repo_path "./" --config_file "config/custom.yaml" --apply_patch_locally --environment_setup="environment.yml"
+python run.py --image_name=sweagent/swe-agent:latest --model_name ollama:llama3 --data_path "./my_issue.md" --repo_path "./" --config_file "config/custom.yaml" --apply_patch_locally --environment_setup="python_env.yml" --host_url='https://9605-34-122-53-71.ngrok-free.app:443'

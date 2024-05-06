@@ -1,0 +1,10 @@
+install: echo 'installing'
+packages: curl
+pip_packages: tox
+python: '3.9'
+
+  # - python=3.9
+  # - pip
+  # - curl
+  # - pip:
+  #   - -r requirements.txt
