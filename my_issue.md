@@ -1,2 +1,2 @@
-test this command search_www.sh and edit it if needed.
-Use the command search_www to search for help on this.
+test this command search_www.sh and edit it to match syntax from command search.sh.
+Then retest it.
