@@ -97,13 +97,10 @@ env_variables:
   CURRENT_LINE: 0
   CURRENT_FILE: ''
   SEARCH_RESULTS: ()
-# search_api:
-#   api_key: "YOUR_API_KEY"
-#   search_engine_id: "YOUR_SEARCH_ENGINE_ID"
-#   SEARCH_INDEX: 0
+  SEARX_URL: "localhost:8081"
 command_files:
 - config/commands/defaults.sh
-# - config/commands/search_www.sh
+- config/commands/search_www.sh
 - config/commands/search.sh
 - config/commands/edit_linting.sh
 - config/commands/_split_string.py
