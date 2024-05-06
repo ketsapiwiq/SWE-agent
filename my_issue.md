@@ -1,1 +1,1 @@
-We should add a "search www" command in the commands/, see commands/readme.Md
+We should add a "search www" command in the commands/, edit /home/hadrien/git/SWE-agent/config/commands/search_www.sh and test it.
