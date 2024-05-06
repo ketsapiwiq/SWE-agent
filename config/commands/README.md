@@ -48,3 +48,17 @@ Next, run your configuration and see how your agent uses the commands!
 ```bash
 python run.py --config_file config/[your config].yaml ...
 ```
+## New Command: search www
+
+This command allows the agent to perform a search on the World Wide Web. It is a placeholder command and should be implemented with the actual search functionality.
+
+```shell
+# @yaml
+# signature: search_www [query]
+# docstring: Performs a web search for the given query.
+# arguments:
+#   query:
+#       type: string
+#       description: The search query to be executed.
+#       required: true
+```
