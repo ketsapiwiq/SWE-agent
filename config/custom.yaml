@@ -97,7 +97,7 @@ env_variables:
   CURRENT_LINE: 0
   CURRENT_FILE: ''
   SEARCH_RESULTS: ()
-  SEARX_URL: "localhost:8081"
+  SEARX_URL: "localhost:9999"
 command_files:
 - config/commands/defaults.sh
 - config/commands/search_www.sh

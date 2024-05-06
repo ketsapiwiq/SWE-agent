@@ -14,16 +14,18 @@ search_www() {
     fi
 
     local search_term="$1"
-    local SEARX_URL="searx.example.com" # assuming this variable is set
-
+    local SEARX_URL=${SEARX_URL:-127.0.0.1:9999}"
+    
     # Use Searx API to search for the term
-    local search_url="https://$SEARX_URL/search?q=$search_term&format=json&engines=google"
+    local search_url="http://${SEARX_URL}/search"
+    local params="q=${search_term}&engines=google&format=json"
+
 
     if ! command -v curl &> /dev/null; then
         echo "Error: curl is not installed or not found in PATH."
         return 1
     fi
-
-    local results=$(curl -s "$search_url")
+    echo "curl -s \"${search_url}?${params}\""
+    local results=$(curl -s "${search_url}?${params}")
     echo "$results"
 }
