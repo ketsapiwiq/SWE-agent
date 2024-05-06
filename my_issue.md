@@ -1,0 +1,1 @@
+We should add a "search www" command in the commands/, see commands/readme.Md
