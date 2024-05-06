@@ -1,20 +1,24 @@
+# @yaml
+# signature: search_www <search_term>
+# docstring: Searches the web using the Searx API and returns the results.
+# arguments:
+#   search_term:
+#     type: string
+#     description: the term to search for
+#     required: true
 #!/bin/bash
-# Search the web using curl and grep
-# Usage: search_www.sh <search_term> <url>
+# Search the web using the Searx API
+# Usage: search_www.sh <search_term>
 
-if [ "$#" -ne 2 ]; then
-    echo "Usage: $0 <search_term> <url>"
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <search_term>"
     exit 1
 fi
 
 search_term=$1
-url=$2
 
-# Use Google Custom Search JSON API to search for the term
-# Read API key and search engine ID from custom.yaml configuration
-api_key=$(grep 'api_key:' ../custom.yaml | cut -d " " -f 2)
-search_engine_id=$(grep 'search_engine_id:' ../custom.yaml | cut -d " " -f 2)
-search_url="https://www.googleapis.com/customsearch/v1?q=$search_term&key=$api_key&cx=$search_engine_id"
+# Use Searx API to search for the term
+search_url="https://searx.example.com/search?q=$search_term&format=json&engines=google"
 
 # Fetch the search results
 results=$(curl -s "$search_url")
