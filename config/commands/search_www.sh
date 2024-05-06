@@ -27,6 +27,6 @@ search_www() {
     fi
     echo "curl -s \"${search_url}?${params}\""
     local results=$(curl -s "${search_url}?${params}")
-    echo "$results"
+    echo "$(jq $results)"
     export SEARCH_RESULTS=$results
 }

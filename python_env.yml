@@ -1,5 +1,5 @@
 install: echo 'installing'
-packages: curl
+packages: curl jq
 pip_packages:
 - tox
 python: '3.9'
