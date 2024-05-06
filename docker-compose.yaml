@@ -1,0 +1,53 @@
+version: '3.7'
+services:
+  # chromadb:
+  #   image: chromadb/chroma
+  #   networks:
+  #     - llm_network
+
+  redis:
+    image: docker.io/library/redis:alpine
+    command: redis-server --save 30 1 --loglevel warning
+    networks:
+      - searxng
+    volumes:
+      - redis-data:/data
+    cap_drop:
+      - ALL
+    cap_add:
+      - SETGID
+      - SETUID
+      - DAC_OVERRIDE
+
+  searxng:
+    ports:
+    - 9999:8080
+    image: docker.io/searxng/searxng:latest
+    networks:
+      - searxng
+      - llm_network
+    volumes:
+      - ./searxng:/etc/searxng:rw
+    environment:
+      - SEARXNG_BASE_URL=https://${SEARXNG_HOSTNAME:-localhost}/
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - SETGID
+      - SETUID
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '1m'
+        max-file: '1'
+
+networks:
+  llm_network:
+    driver: bridge
+  searxng:
+    ipam:
+      driver: default
+
+volumes:
+  redis-data:
