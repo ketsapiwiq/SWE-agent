@@ -1,2 +1,1 @@
-test this command search_www.sh and edit it to match syntax from command search.sh.
-Then retest it.
+Use the command search_www to check for the readme of https://github.com/nilsherzig/LLocalSearch/
